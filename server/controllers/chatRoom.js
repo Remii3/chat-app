@@ -1,4 +1,4 @@
-const ChatRoom = require('../models/ChatRoom');
+const { ChatRoom } = require('../models/ChatRoom');
 
 const createChatRoom = async (req, res) => {
   try {
