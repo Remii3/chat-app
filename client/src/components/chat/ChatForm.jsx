@@ -14,7 +14,7 @@ export default function ChatForm(props) {
     scrollRef.current?.scrollIntoView();
   }, [showEmojiPicker]);
 
-  const handleEmojiClick = (event, emojiObject) => {
+  const handleEmojiClick = (emojiObject, event) => {
     let newMessage = message + emojiObject.emoji;
     setMessage(newMessage);
   };
@@ -27,16 +27,21 @@ export default function ChatForm(props) {
   };
 
   return (
-    <div ref={scrollRef}>
+    <div ref={scrollRef} className="relative">
       {showEmojiPicker && (
-        <Picker className="dark:bg-gray-900" onEmojiClick={handleEmojiClick} />
+        <div className="absolute bottom-16">
+          <Picker
+            className="dark:bg-gray-900 absolute"
+            onEmojiClick={handleEmojiClick}
+          />
+        </div>
       )}
       <form onSubmit={handleFormSubmit}>
         <div className="flex items-center justify-between w-full p-3 bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700">
           <button
             onClick={e => {
               e.preventDefault();
-              setShowEmojiPicker(!showEmojiPicker);
+              setShowEmojiPicker(prevState => !prevState);
             }}
           >
             <EmojiHappyIcon

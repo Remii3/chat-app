@@ -39,7 +39,6 @@ export const getAllUsers = async () => {
 
   try {
     const res = await axios.get(`${baseURL}/user`, header);
-    console.log('res', res);
     return res.data;
   } catch (e) {
     console.error(e);
