@@ -52,7 +52,7 @@ export default function AllUsers({
 
   return (
     <>
-      <ul className="overflow-auto h-[30rem]">
+      <ul className="overflow-auto h-[30rem] scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-thumb-rounded-full">
         <h2 className="my-2 mb-2 ml-2 text-gray-900 dark:text-white">Chats</h2>
         <li>
           {chatRooms.map((chatRoom, index) => (
